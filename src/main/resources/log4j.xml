@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="default.console" class="org.apache.log4j.ConsoleAppender">
+		<param name="target" value="System.out" />
+		<param name="threshold" value="debug" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %p %t %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="default.file" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="./logs/trace.log" />
+		<param name="append" value="true" />
+		<param name="maxFileSize" value="10MB" />
+		<param name="maxBackupIndex" value="10" />
+		<param name="threshold" value="info" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %p %t %c - %m%n" />
+		</layout>
+	</appender>
+
+	<root>
+		<priority value="debug" />
+
+	 <appender-ref ref="default.console" />
+      <appender-ref ref="default.file" />
+	</root>
+
+</log4j:configuration>
+
